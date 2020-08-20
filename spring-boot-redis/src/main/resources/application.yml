@@ -1,0 +1,18 @@
+server:
+  port: 8082
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  #=====Redis 相关========
+  redis:
+    host: 192.168.45.130
+    port: 6379
+    password:
+    database: 0
+    timeout: 10000ms    #
+    jedis:
+      pool:
+        min-idle: 1     # 连接池最小空闲连接
+        max-idle: 5     # 连接池最大空闲连接
+        max-active: 10  # 连接池最大连接数(使用负值表示没有限制)
+        max-wait: -1    # 连接池最大阻塞等待时间(使用负值表示没有限制)
