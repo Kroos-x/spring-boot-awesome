@@ -1,4 +1,4 @@
-package com.yc.db.config.datasource;
+package com.yc.db.config;
 
 /**
  * 功能描述：数据源常量

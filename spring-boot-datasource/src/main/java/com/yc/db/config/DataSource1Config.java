@@ -1,4 +1,4 @@
-package com.yc.db.config.datasource;
+package com.yc.db.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
