@@ -30,9 +30,5 @@ public class SysUser implements Serializable {
      * 真实姓名
      */
     private String name;
-    /**
-     * 年龄
-     */
-    private Integer age;
 
 }

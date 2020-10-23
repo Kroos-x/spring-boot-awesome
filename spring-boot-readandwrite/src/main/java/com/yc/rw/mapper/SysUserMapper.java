@@ -1,7 +1,7 @@
 package com.yc.rw.mapper;
 
 import com.yc.rw.entity.SysUser;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 功能描述:
@@ -9,8 +9,18 @@ import org.apache.ibatis.annotations.Select;
  * @Author: xieyc
  * @Date: 2019-09-19
  */
-public interface SysUserMapper{
+@Mapper
+public interface SysUserMapper {
 
-    @Select("select * from sys_user where id = '1' ")
-    SysUser getUser();
+    int deleteByPrimaryKey(String id);
+
+    int insert(SysUser record);
+
+    int insertSelective(SysUser record);
+
+    SysUser selectByPrimaryKey(String id);
+
+    int updateByPrimaryKeySelective(SysUser record);
+
+    int updateByPrimaryKey(SysUser record);
 }

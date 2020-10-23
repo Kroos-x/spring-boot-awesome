@@ -1,6 +1,11 @@
 package com.yc.rw.service;
 
 import com.yc.rw.entity.SysUser;
+import com.yc.rw.mapper.SysUserMapper;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -10,12 +15,21 @@ import java.util.List;
  * @Author: xieyc
  * @Date: 2019-09-19
  */
-public interface SysUserService {
+@Service
+@Slf4j
+public class SysUserService {
+    @Autowired
+    private SysUserMapper sysUserMapper;
 
-    SysUser getUser();
+    public SysUser selectByPrimaryKey() {
+        return sysUserMapper.selectByPrimaryKey("1");
+    }
 
-    List<SysUser> listUser();
+    public List<SysUser> listUser() {
+        return null;
+    }
 
-    void save();
-
+    public void save(SysUser sysUser) {
+        sysUserMapper.insert(sysUser);
+    }
 }
