@@ -11,9 +11,6 @@ import java.io.Serializable;
  *
  * @Author: xieyc
  * @Date: 2019-09-19
- * <p>
- * mybatisPlus会默认使用实体类的类名到数据库中找对应的表
- * 也可以通过@TableName(value = "sys_user")来指定在数据库中的名字
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

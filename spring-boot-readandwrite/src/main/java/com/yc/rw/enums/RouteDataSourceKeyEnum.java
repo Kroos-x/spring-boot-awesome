@@ -1,7 +1,7 @@
 package com.yc.rw.enums;
 
 /**
- * 功能描述: 枚举，用于选择数据源
+ * 功能描述: 枚举,用于选择数据源
  *
  * @Author: xieyc
  * @Date: 2020-10-23

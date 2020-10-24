@@ -6,6 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -22,6 +23,7 @@ public class DataSourceConfig {
 
     /**
      * 写库
+     *
      * @return db
      */
     @Bean
@@ -32,7 +34,8 @@ public class DataSourceConfig {
 
     /**
      * 读库
-     * @return
+     *
+     * @return db
      */
     @Bean
     @ConfigurationProperties("spring.datasource.slave")
@@ -43,7 +46,7 @@ public class DataSourceConfig {
 
     @Bean
     public DataSource myRoutingDataSource(@Qualifier("masterDataSource") DataSource masterDataSource,
-                                          @Qualifier("slaveDataSource") DataSource slaveDataSource ) {
+                                          @Qualifier("slaveDataSource") DataSource slaveDataSource) {
         Map<Object, Object> targetDataSources = new HashMap<>();
         targetDataSources.put(RouteDataSourceKeyEnum.MASTER, masterDataSource);
         targetDataSources.put(RouteDataSourceKeyEnum.SLAVE, slaveDataSource);

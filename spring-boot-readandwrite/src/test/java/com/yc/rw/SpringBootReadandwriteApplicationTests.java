@@ -16,27 +16,27 @@ public class SpringBootReadandwriteApplicationTests {
     private SysUserService service;
 
     /**
-     * 写库进行写入
+     * 写库
      */
     @Test
     public void testWrite() {
         SysUser aaa = new SysUser();
-        aaa.setId("2");
-        aaa.setName("2");
-        service.save(aaa);
+        aaa.setId("3");
+        aaa.setName("3");
+        service.insert(aaa);
     }
 
     /**
-     * 读库（otadb1和otadb2随机）进行读取
+     * 读库
      */
     @Test
     public void testRead() {
-        SysUser aaa = service.selectByPrimaryKey();
+        SysUser aaa = service.selectUserById("1");
         System.out.println("==========");
         System.out.println("==========");
+        System.out.println(aaa);
         System.out.println("==========");
         System.out.println("==========");
-        System.out.println(aaa.getId());
     }
 
 }

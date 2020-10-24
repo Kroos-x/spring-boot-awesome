@@ -28,8 +28,8 @@ public class MybatisConfig {
     /**
      * 扫描mybatis下的xml文件
      *
-     * @return
-     * @throws Exception
+     * @return sqlSessionFactory
+     * @throws Exception ex
      */
     @Bean
     public SqlSessionFactory sqlSessionFactory() throws Exception {

@@ -1,6 +1,7 @@
 package com.yc.rw.config;
 
 import com.yc.rw.enums.RouteDataSourceKeyEnum;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 /**
@@ -9,7 +10,8 @@ import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
  * @Author: xieyc
  * @Date: 2020-10-23
  */
-public class DBContextHolder extends AbstractRoutingDataSource{
+@Slf4j
+public class DBContextHolder extends AbstractRoutingDataSource {
 
     private static final ThreadLocal<RouteDataSourceKeyEnum> contextHolder = new ThreadLocal<>();
 
@@ -33,15 +35,14 @@ public class DBContextHolder extends AbstractRoutingDataSource{
         return contextHolder.get() == null ? RouteDataSourceKeyEnum.MASTER.name() : contextHolder.get();
     }
 
-
     public static void master() {
         set(RouteDataSourceKeyEnum.MASTER);
-        System.out.println("切换到master");
+        log.info("切换到master");
     }
 
     public static void slave() {
         set(RouteDataSourceKeyEnum.SLAVE);
-        System.out.println("切换到slave");
+        log.info("切换到slave");
 
         /**
          *  //  轮询(多从库的情况)

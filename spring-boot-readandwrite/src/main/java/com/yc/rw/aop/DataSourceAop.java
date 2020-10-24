@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 /**
- * 功能描述:
+ * 功能描述: 配置切面规则
  *
  * @Author: xieyc
  * @Date: 2020-10-23
@@ -22,6 +22,10 @@ public class DataSourceAop {
      */
     @Pointcut("!@annotation(com.yc.rw.annotation.Master) " +
             "&& (execution(* com.yc.rw.service..*.select*(..)) " +
+            "|| execution(* com.yc.rw.service..*.list*(..)) " +
+            "|| execution(* com.yc.rw.service..*.page*(..)) " +
+            "|| execution(* com.yc.rw.service..*.query*(..)) " +
+            "|| execution(* com.yc.rw.service..*.find*(..)) " +
             "|| execution(* com.yc.rw.service..*.get*(..)))")
     public void readPointcut() {
 
@@ -35,9 +39,11 @@ public class DataSourceAop {
     @Pointcut("@annotation(com.yc.rw.annotation.Master) " +
             "|| execution(* com.yc.rw.service..*.insert*(..)) " +
             "|| execution(* com.yc.rw.service..*.add*(..)) " +
+            "|| execution(* com.yc.rw.service..*.save*(..)) " +
             "|| execution(* com.yc.rw.service..*.update*(..)) " +
             "|| execution(* com.yc.rw.service..*.edit*(..)) " +
             "|| execution(* com.yc.rw.service..*.delete*(..)) " +
+            "|| execution(* com.yc.rw.service..*.del*(..)) " +
             "|| execution(* com.yc.rw..*.remove*(..))")
     public void writePointcut() {
 
