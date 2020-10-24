@@ -60,4 +60,11 @@ public class DBContextHolder extends AbstractRoutingDataSource {
          */
     }
 
+    /**
+     * 清空数据源信息
+     */
+    public static void clearDatabaseType() {
+        contextHolder.remove();
+    }
+
 }

@@ -27,5 +27,9 @@ public class SysUser implements Serializable {
      * 真实姓名
      */
     private String name;
+    /**
+     * age
+     */
+    private Integer age;
 
 }

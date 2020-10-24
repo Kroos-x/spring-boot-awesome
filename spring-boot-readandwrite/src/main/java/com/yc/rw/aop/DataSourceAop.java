@@ -1,6 +1,8 @@
 package com.yc.rw.aop;
 
 import com.yc.rw.config.DBContextHolder;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -59,4 +61,13 @@ public class DataSourceAop {
         DBContextHolder.master();
     }
 
+    /**
+     * 配置后置处理，清空数据源信息
+     *
+     * @param point 切点
+     */
+    @After("readPointcut()")
+    public void after(JoinPoint point) {
+        DBContextHolder.clearDatabaseType();
+    }
 }

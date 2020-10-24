@@ -5,6 +5,7 @@ import com.yc.rw.mapper.SysUserMapper;
 import com.yc.rw.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -31,6 +32,7 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void insert(SysUser sysUser) {
         sysUserMapper.insert(sysUser);
     }

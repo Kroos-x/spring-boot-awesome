@@ -5,10 +5,11 @@
     <resultMap id="BaseResultMap" type="com.yc.rw.entity.SysUser">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
+        <result column="age" property="age"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id, name
+        id, name,age
     </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap">
         select
@@ -22,8 +23,8 @@
         where id = #{id}
     </delete>
     <insert id="insert" parameterType="com.yc.rw.entity.SysUser">
-        insert into sys_user (id, name)
-        values (#{id}, #{name})
+        insert into sys_user (id, name, age)
+        values (#{id}, #{name},#{age})
     </insert>
     <insert id="insertSelective" parameterType="com.yc.rw.entity.SysUser">
         insert into sys_user

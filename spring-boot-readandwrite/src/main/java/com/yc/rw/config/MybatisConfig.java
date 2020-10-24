@@ -49,9 +49,9 @@ public class MybatisConfig {
     /**
      * 配置事务管理器
      */
-    @Bean
-    public DataSourceTransactionManager transactionManager(DBContextHolder dataSource) {
-        return new DataSourceTransactionManager(dataSource);
-    }
+    // @Bean
+    // public DataSourceTransactionManager transactionManager(DBContextHolder dataSource) {
+    //     return new DataSourceTransactionManager(dataSource);
+    // }
 
 }
