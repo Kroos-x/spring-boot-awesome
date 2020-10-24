@@ -32,7 +32,6 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     @Override
-    @Transactional(rollbackFor = Exception.class)
     public void insert(SysUser sysUser) {
         sysUserMapper.insert(sysUser);
     }

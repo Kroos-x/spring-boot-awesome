@@ -21,13 +21,9 @@ public class SpringBootReadandwriteApplicationTests {
     @Test
     public void testWrite() {
         SysUser aaa = new SysUser();
-        aaa.setId("1");
+        aaa.setId("2");
         aaa.setName("1");
         aaa.setAge(12);
-        service.insert(aaa);
-        aaa = new SysUser();
-        aaa.setId("2");
-        aaa.setName("2");
         service.insert(aaa);
     }
 
