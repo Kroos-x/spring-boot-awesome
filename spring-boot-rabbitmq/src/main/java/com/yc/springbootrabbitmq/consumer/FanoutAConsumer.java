@@ -8,19 +8,18 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 
 /**
- * 功能描述: 主题交换机 消费者监听 man
+ * 功能描述: 扇形交换机消息 消费者
  *
  * @Author: xieyc
- * @Date: 2020-12-11
+ * @Date: 2020-12-13
  */
 @Component
-@RabbitListener(queues = Const.Queue.TOPIC_MAN)
-public class TopicManConsumer {
+@RabbitListener(queues = Const.Queue.FANOUT_QUEUE_A)
+public class FanoutAConsumer {
 
     @RabbitHandler
-    public void process(Map message) {
-        System.out.println("TopicManReceiverMan消费者收到消息  : " + message.toString());
+    public void process(Map msg) {
+        System.out.println("Fanout A Consumer 接收到消息:" + msg.toString());
     }
-
 
 }

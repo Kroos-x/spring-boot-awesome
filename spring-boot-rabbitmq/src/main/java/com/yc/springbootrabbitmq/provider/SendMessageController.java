@@ -76,5 +76,19 @@ public class SendMessageController {
         return "ok";
     }
 
+    /**
+     * 发送扇形交换机消息
+     * @return
+     */
+    @GetMapping("/sendFanoutMessage")
+    public String sendFanoutMessage(){
+        String messageId = String.valueOf(UUID.randomUUID());
+        String messageData = "message: I am fanout msg ";
+        Map<String, Object> map = new HashMap<>(16);
+        map.put("messageId", messageId);
+        map.put("messageData", messageData);
+        rabbitTemplate.convertAndSend(Const.Exchange.FANOUT_EXCHANGE,null,map);
+        return "ok";
+    }
 
 }

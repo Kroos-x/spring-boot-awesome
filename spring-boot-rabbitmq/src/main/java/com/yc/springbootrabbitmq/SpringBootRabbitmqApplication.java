@@ -10,9 +10,8 @@ public class SpringBootRabbitmqApplication {
         SpringApplication.run(SpringBootRabbitmqApplication.class, args);
     }
 
-
-    // TODO: 2020/12/1 关于admin账号密码
-    // TODO: 2020/12/1 默认虚拟机
-
+    /**
+     * 参考:https://blog.csdn.net/qq_35387940/article/details/100514134
+     */
 
 }

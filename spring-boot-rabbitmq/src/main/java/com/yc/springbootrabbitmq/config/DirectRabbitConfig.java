@@ -56,6 +56,10 @@ public class DirectRabbitConfig {
     }
 
 
+    /**
+     * 测试交换机,用来检测生产者消息确认机制
+     * @return
+     */
     @Bean
     DirectExchange lonelyDirectExchange() {
         return new DirectExchange("lonelyDirectExchange");

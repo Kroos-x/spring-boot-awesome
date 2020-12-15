@@ -11,3 +11,14 @@ spring:
     password: 123456
     # 虚拟host, 可以不设置,使用server默认host
     virtual-host: study
+
+    # 确认消息已发送到交换机(针对生产者)
+    publisher-confirm-type: correlated
+    # 确认消息已发送到队列(针对生产者)
+    publisher-returns: true
+    # 开启消息的手动应答(替换ConsumerMsgListenerConfig配置)
+#    listener:
+#      simple:
+#        acknowledge-mode: manual
+#      direct:
+#        acknowledge-mode: manual

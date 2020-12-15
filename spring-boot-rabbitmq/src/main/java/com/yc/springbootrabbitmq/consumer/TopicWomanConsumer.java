@@ -19,9 +19,7 @@ public class TopicWomanConsumer {
 
     @RabbitHandler
     public void process(Map message) {
-        System.out.println("=============================");
         System.out.println("TopicManReceiverWoman消费者收到消息  : " + message.toString());
-        System.out.println("=============================");
     }
 
 }

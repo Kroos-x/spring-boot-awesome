@@ -18,6 +18,8 @@ public class Const {
         public static final String TOPIC_EXCHANGE = "rabbitmq.topic.exchange";
         // 扇形交换机
         public static final String FANOUT_EXCHANGE = "rabbitmq.fanout.exchange";
+        // 延迟交换机
+        public static final String DELAY_EXCHANGE = "rabbitmq.delay.exchange";
     }
 
     /**
@@ -30,6 +32,15 @@ public class Const {
         public static final String TOPIC_MAN = "topic.man";
         // topic 队列
         public static final String TOPIC_WOMAN = "topic.woman";
+        // fanout 队列
+        public static final String FANOUT_QUEUE_A = "fanout.queue.a";
+        // fanout 队列
+        public static final String FANOUT_QUEUE_B = "fanout.queue.b";
+        // fanout 队列
+        public static final String FANOUT_QUEUE_C = "fanout.queue.c";
+        // delay 队列
+        public static final String DELAY_QUEUE = "delay.queue";
+
     }
 
     /**
@@ -42,7 +53,10 @@ public class Const {
         public static final String MAN = "topic.man";
         // topic 路由
         public static final String WOMAN = "topic.woman";
+        // 延迟 路由
+        public static final String DELAY = "rabbitmq.delay";
     }
+
 
     /**
      * 规则
