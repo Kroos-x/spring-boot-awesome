@@ -26,6 +26,38 @@ spring:
       max-open-prepared-statements: 50
       max-pool-prepared-statement-per-connection-size: 20
 
+  quartz:
+    #相关属性配置
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: DefaultQuartzScheduler
+            instanceId: AUTO
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            tablePrefix: QRTZ_
+            isClustered: false
+            clusterCheckinInterval: 10000
+            useProperties: true
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 10
+            threadPriority: 5
+            threadsInheritContextClassLoaderOfInitializingThread: true
+          dataSource:
+            default:
+              URL: jdbc:mysql://localhost:3306/spring-boot-quartz?characterEncoding=utf-8
+              user: root
+              password: xieyc@mysql
+              driver: com.mysql.jdbc.Driver
+
+    # 数据库方式
+    job-store-type: jdbc
+    # 初始化表结构
+    jdbc:
+      initialize-schema: never
 
 mybatis-plus:
   mapper-locations: classpath*:/mapper/*Mapper.xml

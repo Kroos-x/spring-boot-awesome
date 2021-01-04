@@ -27,7 +27,7 @@ public class IndexController {
         TriggerKey triggerKey = TriggerKey.triggerKey("cj", "123");
         CronTrigger triggerOld = null;
         try {
-            //获取 触发器的信息
+            // 获取 触发器的信息
             triggerOld = (CronTrigger) scheduler.getTrigger(triggerKey);
         } catch (SchedulerException e) {
             e.printStackTrace();
