@@ -1,7 +1,9 @@
 package com.yc.swagger.core.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yc.swagger.core.entity.MessageReceive;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -14,4 +16,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MessageReceiveMapper extends BaseMapper<MessageReceive> {
 
+    Page<MessageReceive> page(@Param("page") Page<MessageReceive> page, @Param("name") String name);
 }

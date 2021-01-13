@@ -2,4 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yc.swagger.core.mapper.MessageReceiveMapper">
 
+    <select id="page" resultType="com.yc.swagger.core.entity.MessageReceive">
+        select *
+        from message_receive
+    </select>
 </mapper>

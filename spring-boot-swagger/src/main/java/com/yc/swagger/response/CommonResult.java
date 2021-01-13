@@ -1,7 +1,6 @@
 package com.yc.swagger.response;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * 功能描述: 通用返回对象
@@ -41,6 +40,7 @@ public class CommonResult<T> {
     }
 
     // =================== Method ===========================
+
     /**
      * 成功返回结果
      */

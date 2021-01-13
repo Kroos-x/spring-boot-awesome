@@ -1,6 +1,5 @@
 package com.yc.swagger.controller;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yc.swagger.model.RequestTest3;
 import com.yc.swagger.model.RequestTest3_;
 import com.yc.swagger.model.RequestTest4;
@@ -55,8 +54,7 @@ public class SwaggerTestRequestController {
 
     @GetMapping("/test4")
     @ApiOperation("请求实体-查询")
-    public CommonResult<String> test4(Page<RequestTest4> page, RequestTest4 query) {
-        // CommonPage.restPage();
+    public CommonResult<String> test4(RequestTest4 query) {
         return CommonResult.success("Swagger Hello" + query.toString());
     }
 

@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * @Date: 2020-10-03
  */
 @Configuration
-@MapperScan("com.yc.swagger.core.entity")
+@MapperScan("com.yc.swagger.core.mapper")
 public class MybatisPlusConfig {
 
     /**

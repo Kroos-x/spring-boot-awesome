@@ -1,14 +1,16 @@
 package com.yc.swagger.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.yc.swagger.core.entity.MessageReceive;
 import com.yc.swagger.model.ResponseTest6;
+import com.yc.swagger.response.CommonPage;
 import com.yc.swagger.response.CommonResult;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import com.yc.swagger.service.MessageReceiveService;
+import io.swagger.annotations.*;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
@@ -23,6 +25,7 @@ import java.util.Date;
 @Api(tags = "返回值示例")
 @RestController
 @RequestMapping("/response")
+@RequiredArgsConstructor
 public class SwaggerTestResponseController {
 
 
@@ -44,19 +47,35 @@ public class SwaggerTestResponseController {
         test6.setSex(2);
         test6.setExpirationDate(new Date());
         test6.setAmount(BigDecimal.valueOf(3));
-
         return CommonResult.success(test6);
     }
 
-    // TODO: 2021/1/11 分页返回
 
-    // TODO: 2021/1/12 requestParam 不传值还能用吗
+    private final MessageReceiveService messageReceiveService;
 
-    // @GetMapping("/test7")
-    // @ApiOperation("分页入参及返回")
-    // public void test7(Integer pageSize, Integer pageNum,String name){
-    //     Page<>
-    // }
+    @GetMapping("/test7")
+    @ApiOperation("分页入参及返回-散列入参")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageSize", value = "每页大小", required = true, paramType = "query"),
+            @ApiImplicitParam(name = "pageNum", value = "当前页码", required = true, paramType = "query"),
+            @ApiImplicitParam(name = "name", value = "姓名", paramType = "query")})
+    public Page<MessageReceive> test7(@RequestParam Integer pageSize, @RequestParam Integer pageNum, String name) {
+        Page<MessageReceive> page = new Page<>();
+        page.setCurrent(pageNum);
+        page.setSize(pageSize);
+        return messageReceiveService.page(page, name);
+    }
 
-    // TODO: 2021/1/12 正常分页返回和现在分页返回
+    @GetMapping("/test8")
+    @ApiOperation("分页入参及返回-ComomonPage封装分页入参和返回分页信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageSize", value = "每页大小", required = true, paramType = "query"),
+            @ApiImplicitParam(name = "pageNum", value = "当前页码", required = true, paramType = "query"),
+            @ApiImplicitParam(name = "name", value = "姓名", paramType = "query")})
+    public CommonResult<CommonPage<MessageReceive>> test8(@RequestParam long pageSize,
+                                                          @RequestParam long pageNum,
+                                                          String name) {
+        return CommonResult.success(CommonPage.restPage(messageReceiveService.page(new Page<>(pageNum, pageSize), name)));
+    }
+
 }

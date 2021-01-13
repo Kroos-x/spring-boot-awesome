@@ -33,7 +33,7 @@ spring:
 
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*Mapper.xml
-  type-aliases-package: com.yc.swagger.entitys.entity
+  type-aliases-package: com.yc.swagger.core.entity
   configuration:
     map-underscore-to-camel-case: true  # 驼峰
   global-config:
