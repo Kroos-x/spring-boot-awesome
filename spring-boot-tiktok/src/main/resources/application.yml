@@ -1,0 +1,7 @@
+tiktok:
+  open:
+    app-key: 28349238239
+    app-secret: 348293402380jdsafos902034
+    host: https://openapi-fxg.jinritemai.com
+    connect-timeout: 10000
+    socket-timeout: 10000
